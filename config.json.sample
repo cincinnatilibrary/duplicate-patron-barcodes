@@ -1,0 +1,12 @@
+{
+    "host": "sierra-db.example.com",
+    "username": "SQLUSERNAME",
+    "password": "SQLPASSWORD",
+    "dbname": "iii",
+    "port": 1032,
+    "_dsn": "This is simply the values above formatted into a connection string", 
+    "dsn": "postgresql://username:password@host:port/dbname",
+    "smtp_username": "admin@example.com",
+    "smtp_password": "SMTP_PASSWORD",
+    "send_list": ["person1@example.com", "person2@example.com"]
+}
