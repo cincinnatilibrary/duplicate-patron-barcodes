@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Duplicate Identifier for Patron Records Report</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #91D6AC;
+    }
+    tr:nth-child(odd) {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Duplicate Identifier for Patron Records Report</h1>
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Identifier Type</th>
+      <th>Identifier</th>
+      <th>Patron Record Numbers</th>
+    </tr>
+    <!-- Assuming `results` is a variable that contains the query result -->
+    <!-- Each `result` is a dictionary with keys 'item_record_num', 'item_barcode', 'messages' -->
+    <!-- The 'messages' value is a list of messages for the item -->
+    {% for result in results %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ result['identifier_type'] }}</td>
+        <td>{{ result['identifier'] }}</td>
+        <td>
+          <ul>
+            {% for record_id in result['patron_record_id_array'] %}
+              <li>{{ record_id }}</li>
+            {% endfor %}
+          </ul>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
